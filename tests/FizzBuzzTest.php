@@ -65,6 +65,24 @@ class FizzBuzzTest extends PHPUnit_Framework_TestCase
     // TODO for example, min-max 10-50
     // TODO for example, vertical
     // TODO To check whether the output results are correct
+
+    /**
+     * auto recover settings
+     *
+     * @return void
+     */
+    public function testAutoRecover()
+    {
+        // Let's Play the game.
+        $game  = new FizzBuzz();
+        // how to play
+        $rules = array(
+            'echo' => false,  // not echo, return string
+            'min'  => 'A',    // 
+        );
+        // set rules
+        $game->setting($rules);
+    }
 }
 
 

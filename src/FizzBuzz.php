@@ -98,6 +98,8 @@ class FizzBuzz
             }
         }
 
+        $this->_checkSetting();
+
         $this->_logDebug(__CLASS__ . '::' . __FUNCTION__);
     }
 
@@ -105,7 +107,7 @@ class FizzBuzz
     /**
      * play the game.
      *
-     * @return none
+     * @return void
      */
     public function play()
     {
@@ -169,11 +171,72 @@ class FizzBuzz
 
 
     /**
+     * check setting
+     *
+     * @return void
+     */
+    private function _checkSetting()
+    {
+        $this->_min += 0;
+        if ($this->_min >= 1) {
+            // start to gt 1
+        } else {
+            $this->_min = 1;
+        }
+
+        $this->_max += 0;
+        if ($this->_max > $this->_min) {
+            // end to gt min
+        } else {
+            $this->_max = $this->_min + 10;
+        }
+
+        if ($this->_count === false) {
+        } else {
+            $this->_count += 0;
+            if ($this->_count > 1) {
+                // OK, play count is this;
+                $this->_max = $this->_min + $this->_count;
+            } else {
+                $this->_count = false;
+            }
+        }
+
+        $this->_three += 0;
+        if ($this->_three > 1) {
+            // gt 2
+        } else {
+            $this->_three = 3;
+        }
+
+        $this->_five += 0;
+        if ($this->_five > 1) {
+            // gt three
+        } else {
+            $this->_five = 5;
+        }
+
+        if ($this->_three < $this->_five) {
+            // OK
+        } else if ($this->_three > $this->_five) {
+            $temp = $this->_three;
+            $this->_three = $this->_five;
+            $this->_five  = $temp;
+        } else {
+            // maybe _three == _five .... init!!
+            $this->_three = 3;
+            $this->_five  = 5;
+        }
+
+        // TODO check more... fizz,buzz,sep,echo,debug
+    }
+
+    /**
      * debug mode
      *
      * @param string $message print strings
      *
-     * @return none
+     * @return void
      */
     private function _logDebug($message)
     {
