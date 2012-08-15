@@ -54,9 +54,6 @@ class FizzBuzz
     /** separator */
     private $_sep   = ',';
 
-    /** echo or return */
-    private $_echo  = true;
-
     /** output type ex:string,array */
     private $_type  = 'string';
 
@@ -135,12 +132,13 @@ class FizzBuzz
                 $ret[] = $i;
             }
         }
-        if ($this->_echo && $this->_type === 'string') {
-            echo implode($this->_sep, $ret);
+        if ($this->_type === 'string') {
+            return implode($this->_sep, $ret);
         } else if ($this->_type === 'array') {
             return $ret;
         } else {
-            return implode($this->_sep, $ret);
+            // ...maybe.
+            return $ret;
         }
 
     }
@@ -152,7 +150,7 @@ class FizzBuzz
      * output current setting in var_dump().
      * for debugging.
      *
-     * @return void
+     * @return current settings array.
      */
     public function showSetting()
     {
@@ -166,13 +164,13 @@ class FizzBuzz
             'fizz'  => $this->_fizz  ,
             'buzz'  => $this->_buzz  ,
             'sep'   => $this->_sep   ,
-            'echo'  => $this->_echo  ,
             'type'  => $this->_type  ,
             'debug' => $this->_debug ,
         );
         // if you like this?
         // $this->_logDebug(serialize($_data));
-        var_dump($_data);
+        // var_dump($_data);
+        return $_data;
     }
 
 

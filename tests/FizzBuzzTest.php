@@ -48,12 +48,17 @@ class FizzBuzzTest extends PHPUnit_Framework_TestCase
     public function testPlay() {
         // Let's Play the game.
         $game  = new FizzBuzz();
+
         // how to play
         $rules = array(
-            'echo' => false,  // not echo, return string
         );
+
         // set rules
         $game->setting($rules);
+        $current_rules = $game->showSetting();
+
+        $this->assertNotEmpty($current_rules);
+
         // Play now.
         $result = $game->play();
 
@@ -78,7 +83,6 @@ class FizzBuzzTest extends PHPUnit_Framework_TestCase
 
         // how to play
         $rules = array(
-            'echo' => false,   // not echo
             'min'  => '1',     // 
             'max'  => '20',    // 
             'type' => 'array', // return array plz. coz assertion.
@@ -86,9 +90,6 @@ class FizzBuzzTest extends PHPUnit_Framework_TestCase
 
         // set rules
         $game->setting($rules);
-
-        // local test...:P
-        // $game->showSetting();
 
         // Let's Play
         $result = $game->play();
@@ -130,7 +131,6 @@ class FizzBuzzTest extends PHPUnit_Framework_TestCase
         $game  = new FizzBuzz();
         // how to play
         $rules = array(
-            'echo' => false,  // not echo, return string
             'min'  => '1',    // 
             'max'  => '20',    // 
             'type' => 'array', // 
