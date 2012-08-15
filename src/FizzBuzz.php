@@ -57,6 +57,9 @@ class FizzBuzz
     /** echo or return */
     private $_echo  = true;
 
+    /** output type ex:string,array */
+    private $_type  = 'string';
+
     /** debug mode */
     private $_debug = false;
 
@@ -132,8 +135,10 @@ class FizzBuzz
                 $ret[] = $i;
             }
         }
-        if ($this->_echo) {
+        if ($this->_echo && $this->_type === 'string') {
             echo implode($this->_sep, $ret);
+        } else if ($this->_type === 'array') {
+            return $ret;
         } else {
             return implode($this->_sep, $ret);
         }
@@ -162,6 +167,7 @@ class FizzBuzz
             'buzz'  => $this->_buzz  ,
             'sep'   => $this->_sep   ,
             'echo'  => $this->_echo  ,
+            'type'  => $this->_type  ,
             'debug' => $this->_debug ,
         );
         // if you like this?
@@ -226,6 +232,11 @@ class FizzBuzz
             // maybe _three == _five .... init!!
             $this->_three = 3;
             $this->_five  = 5;
+        }
+
+
+        if ($this->_type !== 'array') {
+            $this->_type = 'string';
         }
 
         // TODO check more... fizz,buzz,sep,echo,debug
