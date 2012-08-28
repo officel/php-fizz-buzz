@@ -16,8 +16,8 @@ error_reporting(E_NOTICE|E_STRICT);
 require 'FizzBuzz.php';
 
 $game = new FizzBuzz();
-var_dump( $game->showSetting() );
-var_dump( $game->play() );
+var_dump($game->showSetting());
+var_dump($game->play());
 
 echo PHP_EOL , "-----" , PHP_EOL;
 
@@ -28,8 +28,8 @@ $params['sep']    = PHP_EOL; // vertical output
 $params['debug']  = true;
 
 $game->setting($params);
-var_dump( $game->showSetting() );
-var_dump( $game->play() );
+var_dump($game->showSetting());
+var_dump($game->play());
 
 echo PHP_EOL , "-----" , PHP_EOL;
 
