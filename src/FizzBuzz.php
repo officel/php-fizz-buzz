@@ -181,20 +181,57 @@ class FizzBuzz
      */
     private function _checkSetting()
     {
+ 
+        $this->_checkSettingMin();
+        $this->_checkSettingMax();
+        $this->_checkSettingCount();
+        $this->_checkSetting35();
+        $this->_checkSettingType();
+
+        // TODO check more... fizz,buzz,sep,echo,debug
+    }
+
+
+
+    /**
+     * check setting Min
+     *
+     * @return void
+     */
+    private function _checkSettingMin()
+    {
         $this->_min += 0;
         if ($this->_min >= 1) {
             // start to gt 1
         } else {
             $this->_min = 1;
         }
+    }
 
+
+    /**
+     * check setting Max
+     *
+     * @return void
+     */
+    private function _checkSettingMax()
+    {
         $this->_max += 0;
         if ($this->_max > $this->_min) {
             // end to gt min
         } else {
             $this->_max = $this->_min + 10;
         }
+    }
 
+
+    /**
+     * check setting Count
+     *
+     * @return void
+     */
+    private function _checkSettingCount()
+    {
         if ($this->_count === false) {
         } else {
             $this->_count += 0;
@@ -205,7 +242,16 @@ class FizzBuzz
                 $this->_count = false;
             }
         }
+    }
 
+
+    /**
+     * check setting three & five
+     *
+     * @return void
+     */
+    private function _checkSetting35()
+    {
         $this->_three += 0;
         if ($this->_three > 1) {
             // gt 2
@@ -231,13 +277,19 @@ class FizzBuzz
             $this->_three = 3;
             $this->_five  = 5;
         }
+    }
 
 
+    /**
+     * check setting type
+     *
+     * @return void
+     */
+    private function _checkSettingType()
+    {
         if ($this->_type !== 'array') {
             $this->_type = 'string';
         }
-
-        // TODO check more... fizz,buzz,sep,echo,debug
     }
 
     /**
